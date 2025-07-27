@@ -9,6 +9,7 @@ import typing as tt
 
 from .module.cem import CEM, iterate_batches, Episode  # noqa: F403
 
+# batch size 증가 및 보상 감가율 적용
 HIDDEN_SIZE = 128
 BATCH_SIZE = 100
 PERCENTILE = 30
@@ -28,6 +29,8 @@ class DiscreteOneHotWrapper(gym.ObservationWrapper):
 
 def filter_batch(batch: tt.List[Episode], percentile: float) -> \
         tt.Tuple[tt.List[Episode], tt.List[np.ndarray], tt.List[int], float]:
+
+    # 할인된 보상 계산
     reward_fun = lambda s: s.reward * (GAMMA ** len(s.steps))
     disc_rewards = list(map(reward_fun, batch))
     reward_bound = np.percentile(disc_rewards, percentile)
