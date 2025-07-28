@@ -137,7 +137,7 @@ class Agent:
                 self.values[(state, action)] = action_value
 
 '''
-이제는 모든 행동 값이 value table에 직접 저장되므로, 이 함수가 더 이상 필요하지 않습니다.
+이제는 모든 행동 값이 value table에 직접 저장되므로, calc_action_value 함수가 더 이상 필요하지 않습니다.
 '''
     # def calc_action_value(self, state: State, action: Action) -> float:
     #     '''
