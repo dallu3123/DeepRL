@@ -31,15 +31,15 @@ RewardKey = tt.Tuple[State, Action, State] # 보상 키
 TransitKey = tt.Tuple[State, Action] # 전이 테이블을 위한 키
 
 '''
-v iteration과 달리 가장 명확한 변화는 value table입니다. 
-이전 예제에서는 상태의 값만 저장했기 때문에 딕셔너리의 키는 단순히 상태(state)였습니다. 
+v iteration과 달리 가장 명확한 변화는 value table입니다.
+이전 예제에서는 상태의 값만 저장했기 때문에 딕셔너리의 키는 단순히 상태(state)였습니다.
 이제는 Q-function의 값을 저장해야 하므로, 딕셔너리의 키는 (State, Action)의 쌍으로 구성된 복합 키가 됩니다.
 
 두 번째 차이점은 calc_action_value() 함수입니다.
 이제는 모든 행동 값이 value table에 직접 저장되므로, 이 함수가 더 이상 필요하지 않습니다.
 
-마지막이자 가장 중요한 변화는 에이전트의 value_iteration() 메서드입니다. 
-이전에는 이 메서드가 단지 calc_action_value()를 호출하여 Bellman 근사를 수행하는 래퍼 역할만 했습니다. 
+마지막이자 가장 중요한 변화는 에이전트의 value_iteration() 메서드입니다.
+이전에는 이 메서드가 단지 calc_action_value()를 호출하여 Bellman 근사를 수행하는 래퍼 역할만 했습니다.
 하지만 이제 이 함수가 사라지고 value table이 직접 사용되므로, Bellman 근사를 value_iteration() 메서드 안에서 직접 수행해야 합니다.
 '''
 
