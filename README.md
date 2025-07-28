@@ -23,3 +23,14 @@ Install the requirements
 pip install -r requirements.txt
 ```
 
+Install the stable-baselines3
+if you use bash, you can install the stable-baselines3 with the following command.
+```bash
+pip install stable-baselines3
+```
+
+if you use zsh, you can install the stable-baselines3 with the following command.
+```zsh
+pip install 'stable-baselines3'
+```
+
