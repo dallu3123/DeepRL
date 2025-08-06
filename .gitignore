@@ -1,5 +1,6 @@
-*/runs
+**/runs
 /runs
 __pycache__
 /videos
 *.dat
+.DS_Store
