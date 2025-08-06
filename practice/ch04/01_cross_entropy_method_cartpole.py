@@ -41,7 +41,7 @@ class Episode:
     steps: tt.List[EpisodeStep]
     # 에피소드의 총 보상과 여러개의 에피소드 스텝을 저장
 
-# 에피소드 배치를 생성하는 함수
+# 에피소드 배치를 생성하는 함수 - 일단은 batch_size만큼 에피소드 저장
 def iterate_batches(env: gym.Env, net: nn.Module, batch_size: int):
     # 배치 초기화
     batch = []
@@ -106,6 +106,7 @@ def iterate_batches(env: gym.Env, net: nn.Module, batch_size: int):
         # 다음 관측값을 현재 관측값으로 업데이트
         obs = next_obs
 
+# Elite set를 만들어주는 필터링하는 함수
 def filter_batch(batch: tt.List[Episode], percentile: float)-> \
     tt.Tuple[torch.FloatTensor, torch.LongTensor, float, float]:
 
